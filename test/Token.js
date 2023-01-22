@@ -17,7 +17,7 @@ describe('Token contract' , ()=>{
             expect(await tokenContract.getOwnersFunds()).to.not.be.undefined ;
             expect(await tokenContract.getOwnersFunds()).to.equals(100) ;
         }) ;
-    }) ;
+    });
     describe('Transactions' , ()=>{
         it('transfers the funds from owner account to another' , async()=>{
             expect(await tokenContract.getCallingAccount()).to.be.equals(owner.address) ;
@@ -25,7 +25,7 @@ describe('Token contract' , ()=>{
             const initialRecipeientsFunds = await tokenContract.getFunds(add1.address) ;
             transaction = await tokenContract.transferFunds(30 , add1.address) ;
             await transaction.wait() ;
-            
+
             const remainingOwnerFunds = await tokenContract.getOwnersFunds() ;
             const finalRecipientsFunds = await tokenContract.getFunds(add1.address) ;
             expect(remainingOwnerFunds.add(30)).to.equals(initialOwnerFunds) ;

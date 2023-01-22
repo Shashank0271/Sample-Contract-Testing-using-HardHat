@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.1;
-
+import "hardhat/console.sol";
 contract Token{
     address public owner; 
     mapping (address => uint) funds;
